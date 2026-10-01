@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Second Home | Afternoon Tea & Platters</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* GENERAL */
+body {
+  margin:0;
+  font-family:'Open Sans',sans-serif;
+  background:black;
+  color:#f2c94c;
+  overflow-x:hidden;
+}
+
+a {
+  color:#f2c94c;
+  text-decoration:none;
+}
+
+/* HEADER */
+header{
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:70px;
+height:70px;
+}
+
+header h1{
+font-family:'Great Vibes',cursive;
+font-size:48px;
+margin:0;
+color:#f2c94c;
+}
+
+.socials{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s, opacity 0.3s; /* smooth effects */
+  flex-wrap: wrap; /* 🔥 allows wrapping when needed */
+}
+
+.menu-icon,
+.socials a {
+  font-size: 40px;
+  color: #f2c94c;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.socials a:hover {
+  font-size: 45px;       /* enlarge slightly */
+  opacity: 0.8;                /* slightly transparent */
+}
+
+/* Click (active) effect */
+.socials a:active {
+  font-size: 45px;       /* enlarge slightly */
+  opacity: 1;                   /* back to full opacity */
+}
+
+.menu-icon {
+  font-size: 40px;
+  color: #f2c94c;
+  cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  background: black;
+  border: 1px solid #f2c94c;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  min-width: 220px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* LINKS */
+.dropdown-menu a {
+  padding: 15px 20px;
+  color: #f2c94c;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242,201,76,0.2);
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #f2c94c;
+  color: black;
+}
+
+/* SHOW MENU */
+.dropdown-menu.show {
+  display: flex;
+  animation: fadeSlide 0.3s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HERO */
+.hero {
+  position:relative;
+  height:50vh;
+  background:url('https://images.unsplash.com/photo-1589114471223-dec0d8d572c6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0') top/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero::after {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.4);
+}
+
+.hero h2 {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  color: #f2c94c;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  margin: 0;
+}
+
+/* MENU GRID */
+.menu-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+  max-width:1200px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+.menu-card {
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  cursor:pointer;
+  transform-style: preserve-3d;
+  perspective:1000px;
+  height:0;
+  padding-bottom:100%; /* Square aspect ratio */
+}
+
+.menu-card img {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  border-radius:20px;
+}
+
+.menu-card:hover img {
+  transform: scale(1.1) rotateY(5deg);
+  filter: brightness(0.6);
+}
+
+/* TEXT OVERLAY */
+.menu-text {
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  color:#f2c94c;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+  opacity:0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.menu-card:hover .menu-text {
+  opacity:1;
+  transform: translateY(0);
+}
+
+.menu-text h3 {
+  font-family:'Great Vibes',cursive;
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.menu-text p {
+  font-size:18px;
+  margin:0;
+}
+
+/* INFO BOX */
+.info {
+  max-width:900px;
+  margin:40px auto;
+  padding:25px;
+  background:rgba(255,255,255,0.05);
+  border-left:3px solid #f2c94c;
+  font-size:18px;
+  text-align:center;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:30px;
+  font-size:16px;
+  color:#f2c94c;
+  border-top:1px solid #f2c94c;
+  margin-top:60px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h2 {
+    font-size:36px;
+  }
+  .menu-text h3 {
+    font-size:28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="brand">
+<img src="Goldlogo.PNG" class="logo">
+<h1><a href="thesecondhome.html" style="text-decoration: none; color: #f2c94c;">The Second Home</h1></a>
+</div>
+<div class="socials">
+  <a href="mailto:sales@thesecondhome.com" style="text-decoration: none; font-size: 40px; color: #f2c94c;">✉  </a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</div>
+<div class="dropdown-menu" id="dropdownMenu">
+  <a href="TheSecondHome.html">Home</a>
+  <a href="reservation.html">Book a table</a>
+  <a href="menu.html">Menu</a>
+  <a href="#">Afternoon tea</a>
+  <a href="contact.html">Contact us</a>
+</div>
+</header>
+
+<div class="hero">
+  <h2>Afternoon Tea <br>& <br>Sandwich Platters</h2>
+</div>
+
+<div class="menu-grid">
+  <div class="menu-card">
+    <img src="afternoon-tea.JPG" alt="Classic Afternoon Tea">
+    <div class="menu-text">
+      <h3>Classic Afternoon Tea</h3>
+      <p>A selection of sandwiches, cakes and scones served with Jam and butter.<br>Served with unlimited americano/tea and a glass of orange/apple juice.<br><strong>£28 per person</strong></p>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="sandwiches.JPG" alt="Deluxe Sandwich Platter">
+    <div class="menu-text">
+      <h3>Deluxe Sandwich/Wrap Platter</h3>
+      <p>Variety of freshly made sandwiches with gourmet fillings. Upto 4 different fillings per platter.<br><strong>£25 per platter</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <p><strong>Please note:</strong> All afternoon tea and platter orders must be reserved in advance and require a cash deposit. Kindly place your order <strong>in-store at least a day before your event</strong>.</p>
+</div>
+
+<footer>© 2026 The Second Home Cafe <br> </footer>
+
+
+<script>
+function toggleMenu() {
+  document.getElementById("dropdownMenu").classList.toggle("show");
+}
+
+window.addEventListener("click", function(e) {
+  const menu = document.getElementById("dropdownMenu");
+  const button = document.querySelector(".menu-icon");
+
+  if (!menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove("show");
+  }
+});
+</script>
+</body>
+</html>

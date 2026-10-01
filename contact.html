@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us - The Second Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:'Open Sans',sans-serif;
+background:black;
+color:#f2c94c;
+}
+
+/* HEADER */
+header{
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:70px;
+height:70px;
+}
+
+header h1{
+font-family:'Great Vibes',cursive;
+font-size:48px;
+margin:0;
+color:#f2c94c;
+}
+
+/* SOCIALS */
+.socials{
+display:flex;
+align-items:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.menu-icon{
+font-size:40px;
+cursor:pointer;
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+position:absolute;
+top:80px;
+right:40px;
+background:black;
+border:1px solid #f2c94c;
+border-radius:10px;
+display:none;
+flex-direction:column;
+min-width:220px;
+z-index:1000;
+}
+
+.dropdown-menu a{
+padding:15px;
+color:#f2c94c;
+text-decoration:none;
+border-bottom:1px solid rgba(242,201,76,0.2);
+}
+
+.dropdown-menu a:hover{
+background:#f2c94c;
+color:black;
+}
+
+.dropdown-menu.show{
+display:flex;
+}
+
+/* PAGE TITLE */
+.page-title{
+text-align:center;
+font-size:60px;
+font-family:'Great Vibes',cursive;
+margin:40px 0 10px;
+}
+
+.subtitle{
+text-align:center;
+margin-bottom:50px;
+opacity:0.8;
+}
+
+/* CONTACT CARDS */
+.contact-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+padding:0 10%;
+}
+
+.contact-card{
+background:rgba(255,255,255,0.02);
+border:1px solid rgba(242,201,76,0.3);
+border-radius:15px;
+padding:30px;
+width:220px;
+text-align:center;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+/* glow hover */
+.contact-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(242,201,76,0.4);
+}
+
+/* soft fade edges */
+.contact-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle, transparent 60%, black 100%);
+pointer-events:none;
+}
+
+.contact-icon{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.contact-card a{
+text-decoration:none;
+color:#f2c94c;
+font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px;
+color:#f2c94c;
+border-top:1px solid #f2c94c;
+margin-top:80px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="brand">
+<img src="Goldlogo.PNG" class="logo">
+<h1><a href="thesecondhome.html" style="text-decoration:none; color:#f2c94c;">The Second Home</a></h1>
+</div>
+
+<div class="socials">
+<a href="mailto:privateemail@gmail.uk" style="text-decoration:none;font-size:40px; color:#f2c94c;">✉</a>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+</div>
+</header>
+
+<div class="dropdown-menu" id="dropdownMenu">
+<a href="TheSecondHome.html">Home</a>
+<a href="reservation.html">Book a table</a>
+<a href="menu.html">Menu</a>
+<a href="afternoon-tea.html">Afternoon tea</a>
+<a href="#">Contact us</a>
+</div>
+
+<h1 class="page-title">Get in Touch</h1>
+<p class="subtitle">We’d love to hear from you!</p>
+
+<div class="contact-container">
+
+<div class="contact-card">
+<div class="contact-icon">✉</div>
+<p>Email Us</p>
+<a href="mailto:privateemail@gmail.uk">privateemail@gmail.com</a>
+</div>
+
+<div class="contact-card">
+<img src="https://static.vecteezy.com/system/resources/previews/018/930/415/non_2x/instagram-logo-instagram-icon-transparent-free-png.png" style="width: 80px;">
+<p>Instagram</p>
+<a href="https://www.instagram.com/thesecondhomeorp/">@instaaccount</a>
+</div>
+
+
+
+<div class="contact-card">
+<img src="https://images.seeklogo.com/logo-png/34/2/tiktok-logo-png_seeklogo-340606.png" style="width: 80px;">
+<p>TikTok</p>
+<a href="https://www.tiktok.com/@thesecondhomeorp">@tiktokaccount</a>
+</div>
+
+<div class="contact-card">
+<img src="https://reutersinstitute.politics.ox.ac.uk/digital-news-report/archive/wp-content/uploads/2018/05/Facebook_logo_square.png" style="width: 80px;">
+<p>Facebook</p>
+<a href="https://www.facebook.com/p/The-Second-Home-100079127222754/">Facebook account</a>
+</div>
+
+</div>
+
+<footer>© 2026 The Second Home Cafe </footer>
+
+
+<script>
+function toggleMenu(){
+document.getElementById("dropdownMenu").classList.toggle("show");
+}
+
+window.addEventListener("click", function(e){
+const menu = document.getElementById("dropdownMenu");
+const button = document.querySelector(".menu-icon");
+
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
+}
+});
+</script>
+
+</body>
+</html>

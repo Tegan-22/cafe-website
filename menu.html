@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Our Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+/* HEADER */
+header{
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:70px;
+height:70px;
+}
+
+header h1{
+font-family:'Great Vibes',cursive;
+font-size:48px;
+margin:0;
+color:#f2c94c;
+}
+
+.socials{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s, opacity 0.3s; /* smooth effects */
+  flex-wrap: wrap; /* 🔥 allows wrapping when needed */
+}
+
+.menu-icon,
+.socials a {
+  font-size: 40px;
+  color: #f2c94c;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.socials a:hover {
+  font-size: 45px;       /* enlarge slightly */
+  opacity: 0.8;                /* slightly transparent */
+}
+
+/* Click (active) effect */
+.socials a:active {
+  font-size: 45px;       /* enlarge slightly */
+  opacity: 1;                   /* back to full opacity */
+}
+
+.menu-icon {
+  font-size: 40px;
+  color: #f2c94c;
+  cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  background: black;
+  border: 1px solid #f2c94c;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  min-width: 220px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* LINKS */
+.dropdown-menu a {
+  padding: 15px 20px;
+  color: #f2c94c;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242,201,76,0.2);
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #f2c94c;
+  color: black;
+}
+
+/* SHOW MENU */
+.dropdown-menu.show {
+  display: flex;
+  animation: fadeSlide 0.3s ease;
+}
+
+.coffee-layout {
+  background-color: black; 
+  flex:1 1 400px; 
+  padding-left: 10px; 
+  padding-right: 10px;
+}
+
+  .menu-layout {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 40px;
+  padding: 0 20px;
+  background-color: black;
+}
+.blank {
+  padding: 0 20px;
+  background-color: black;
+  font-size: 40px;
+  color: #f2c94c;
+}
+.subt {
+  padding: 0 20px;
+  background-color: black;
+  font-size: 20px;
+  color: #e8ce7f;
+}
+.titles {
+  background-color: black;
+  font-size: 40px;
+  color: #f2c94c;
+  gap: 0%;
+}
+
+/* LEFT SIDE */
+.menu-left {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+.food-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  max-width: 100%;
+  background-color: black;
+}
+
+.number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f2c94c;
+}
+
+.details .name {
+  font-size: clamp(18px, 3vw, 30px);
+  color: #f2c94c;
+  font-weight: bold;
+}
+
+.details .description {
+  font-size: clamp(12px, 2vw, 25px);
+  color: #f2c94c;
+  margin-top: 5px;
+}
+
+.simple-sandwiches {
+    margin-top: 10px;
+    color: #f2c94c;
+    background-color: black;
+}
+
+.simple-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.simple-item {
+  margin-left: 10px;
+    font-weight: bold;
+  font-size: clamp(18px, 3vw, 30px);
+
+    margin-bottom: 4px;
+}
+
+/* RIGHT SIDE */
+.menu-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.menu-right img {
+  width: 90%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: clamp(50px, 42vw, 120px)
+}
+
+.menu-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  gap: 20px;
+  row-gap: 5px;
+  padding: 0px 0;
+  background: rgba(0,0,0,0.6); /* semi-transparent black bar */
+}
+
+.menu-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.menu-links a:hover {
+  color: #f2c94c;
+}
+
+.between-image {
+  width: 100%;
+  margin: 15px 0 20px 0;
+}
+
+.between-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+
+  .menu-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .menu-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-right: 0;
+  }
+
+  .menu-right img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  /* Hide images 3, 4, 5 and 6 on mobile */
+  .menu-right img:nth-child(n+3) {
+    display: none;
+  }
+
+}
+
+
+/* ANIMATION */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .hero {
+  position: relative;
+  width: 100%;
+  height: 350px; /* adjust as needed */
+  background-image: url('The Second Home-7.jpg'); /* your image */
+  background-size: cover;
+  background-position: center 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* push links to bottom */
+  padding-bottom: 10px; /* space from bottom */
+}
+
+.hero h1 {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #f2c94c;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  margin: 0;
+}
+
+
+</style>
+
+
+<header>
+<div class="brand">
+<img src="Goldlogo.PNG" class="logo">
+<h1><a href="thesecondhome.html" style="text-decoration: none; color: #f2c94c;">The Second Home</h1></a>
+</div>
+<div class="socials">
+  <a href="mailto:sales@thesecondhome.com" style="text-decoration: none; font-size: 40px; color: #f2c94c;">✉  </a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</div>
+<div class="dropdown-menu" id="dropdownMenu">
+  <a href="TheSecondHome.html">Home</a>
+  <a href="reservation.html">Book a table</a>
+  <a href="#">Menu</a>
+  <a href="afternoon-tea.html">Afternoon tea</a>
+  <a href="contact.html">Contact us</a>
+</div>
+</header>
+
+<body>
+
+  <div class="hero">
+    <h1>Explore Our Menu</h1>
+
+    <div class="menu-links">
+      <a href="#breakfasts" style="text-decoration: underline">Breakfasts</a>
+      <a href="#sandwiches">Sandwiches</a>
+      <a href="#burgers">Burgers</a>
+      <a href="#kidsmenu">Kids Menu</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#pastries">Pastries/Cakes</a>
+    </div>
+  </div>
+
+<div class="blank" style="text-align: left" id="breakfasts"><br>BREAKFASTS </div>
+<div class="menu-layout" style="background-color: black;">
+
+  <div class="menu-left" style="background-color: black;">
+    <br>
+    <div class="food-item" style="background-color: black;">
+      <div class="number">1.</div>
+      <div class="details">
+        <div class="name">Full English Breakfast - £9.40</div>
+        <div class="description">
+          2 x Grilled Bacon, Sausage, 2 x Free Range Egg, Hash Brown, Baked Beans
+        </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">2.</div>
+      <div class="details">
+        <div class="name">Smoked Salmon, Avocado & Scramble Egg - £8.75</div>
+        <div class="description">
+          Smoked Salmon, Scrambled egg, Mashed avocado
+        </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">3.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Egg Benedict - £8.50</div>
+        <div class="description">
+          Grilled Bacon, Poached Egg, Hollandaise Sauce, served on a toasted muffin
+        </div>
+      </div>
+    </div>
+
+<div class="food-item">
+      <div class="number">3.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Egg Benedict - £8.50</div>
+        <div class="description">
+          Grilled Bacon, Poached Egg, Hollandaise Sauce, served on a toasted muffin
+        </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">4.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Egg Florentine - £7.40</div>
+        <div class="description">
+          Baby Spinach, Poached Egg, Hollandaise Sauce - served on a toasted muffin
+      </div>
+      </div>
+    </div>
+    <div class="food-item">
+      <div class="number">5.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Egg Royale - £9.50</div>
+        <div class="description">
+          Smoked Salmon, Baby Spinach, Poached Egg, Hollandaise sauce - served on a toasted muffin
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">6.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Vegetarian Breakfast - £8.50</div>
+        <div class="description">
+          Free Range Egg, Crispy Potato & Vegetable Patty, Hash Brown, Thyme Tomato, Mushrooms, Baked Beans, Spinach, Toasted bread slice
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">7.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Vegan Breakfast - £8.50</div>
+        <div class="description">
+          Baby Spinach, Falafels, Mushrooms, Baked Beans, Mashed avocado, Sweet Potato Chips, Toasted bread slice
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">8.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Cheddar Gorge Welsh Rarebit - £8.50</div>
+        <div class="description">
+          Medley of Cheeses (cheddar, goat cheese and brie), Salsa dip - served on choice of breads
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">9.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Full English Sandwich - £8.00</div>
+        <div class="description">
+          Free Range Egg, Grilled Bacon, Sausage, Hash Brown - served in choice of bread
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">10.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Breakfast Double - £6.50</div>
+        <div class="description">
+          Egg, 2 x Bacon - served in choice of breads
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">11.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Sausage Sandwich - £5.50</div>
+        <div class="description">
+          Served in choice of breads
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">12.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Bacon Sandwich - £5.50</div>
+        <div class="description">
+          Served in choice of breads
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">13.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Beans on Toast - £5.20</div>
+        <div class="description">
+          Served on choice of breads
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">14.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Egg on Toast - £5.50</div>
+        <div class="description">
+          A choice of scrambled, fried or poached eggs - served on choice of breads
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">15.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Scrambled Egg, Avocado & Crispy Bacon on Sourdough Bread - £7.50</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">16.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Poached Egg & Avocado on Sourdough Bread - £7.20</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">17.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Plain Omelette - £5.00</div>
+        <div class="description">
+          See below for additional fillings
+      </div>
+      </div>
+      <br>
+    </div><div style="font-weight: bolder; padding-left: 10px; color: #f2c94c; font-size: clamp(18px, 3vw, 30px);">OPTIONAL EXTRAS:</div>
+    <div style="padding-left: 10px; color: #e8ce7f;">Tomato 50p - Mushroom 50p - Spinach 50p - Onion 50p - Egg 95p - Sausage 95p - Bacon 95p - Hash Brown 95p - Salmon £1.95 - Chips £2.50 - Sweet Potato Fries £3.00 - Veg. Patty £2.00 - Ciabatta additional 60p</div>
+  </div>
+
+
+  <div class="menu-right">
+    <img src="The Second Home-185.jpg" style="width: 95%; height: auto; max-height: 300px;">
+    <img src="The Second Home-132.jpg" style="width: 95%; height: auto; max-height: 300px;">
+    <img src="The Second Home-188.jpg" style="width: 95%; height: auto; max-height: 300px;">
+    <img src="The Second Home-95.jpg">
+    <img src="The Second Home-92.jpg">
+    <img src="The Second Home-193.jpg">
+  </div>
+</div>
+
+  <div class="blank" id="sandwiches">SANDWICHES</div>
+  <div class="subt">All served in a choice of: Ciabatta (additional 60p) - White, Brown, Sourdough or Gluten-free bread - Roll or bagel <br>
+  </div>
+<div class="menu-layout">
+  <div class="menu-left">
+  <br>
+    <div class="food-item">
+      <div class="number">1.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Chicken - Avocado - Bacon - £7.40</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">2.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Bacon Melt - £7.40</div>
+        <div class="description">
+          Bacon, Cheese, Tomato, Leeks
+        </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">3.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Parma Ham - Mozzarella - Green Pesto - Roasted Pepper - £7.40</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">4.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Spinach - Goats Cheese - Caramelized Onions - Roasted Peppers - £7.40</div>
+      </div>
+    </div>
+    
+
+    <div class="food-item">
+      <div class="number">5.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Turkey - Brie - Cranberry Sauce - £7.40</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">6.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Avocado - Basil - Tomato - Mozzarella - £7.00</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">7.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Tuna Melt - £7.50</div>
+        <div class="description">
+          Tuna mayo, cheese
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">8.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Tuna & Sweetcorn - £7.50</div>
+        <div class="description">
+          Tuna Mayo, Sweetcorn, Red Onion
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">9.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">BLT - £7.00</div>
+        <div class="description">
+          Bacon, Salad, Tomato
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">10.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Chicken Mayo - Crispy Bacon - £7.00</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">11.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Chicken Supreme - £7.40</div>
+        <div class="description">
+          Chicken, Crispy Bacon, Spinach, Homemade Garlic Mayo
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">12.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Chicken Escalope - £8.50</div>
+        <div class="description">
+          Chicken Escalope, Bacon, Cheese, Salad, Homemade Garlic Mayo
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">13.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Fab Club Sandwich - £12.00</div>
+        <div class="description">
+          Chicken Mayo, Egg, Ham, Cheese, Tomato, Salad, Homemade Garlic Mayo, Chips
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">14.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Ploughman's Sandwich - £7.20</div>
+        <div class="description">
+          Ham, Cheese, Sweet Pickle, Salad
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">15.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Coronation Chicken - £7.50</div>
+        <div class="description">
+          Chicken Curry mayo, Mango chutney, Sultanas
+      </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">16.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Seafood Stick Cocktail - £6.50</div>
+        <div class="description">Served During Summer Seasons</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">17.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Smoked Salmon and Cream Cheese - £8.00</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">18.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Egg Mayo - £5.50</div>
+      </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    </div>
+
+</div>
+
+  <div class="menu-right">
+    <img src="The Second Home-100.jpg">
+    <img src="The Second Home-126.jpg">
+    <img src="The Second Home-107.jpg">
+    <img src="The Second Home-153.jpg">
+    <img src="The Second Home-127.jpg">
+    <img src="The Second Home-120.jpg">
+  </div>
+</div>
+
+<div class="blank">SIMPLE SANDWICHES</div>  
+<div class="menu-layout">
+  <div class="menu-left">
+    <div class="simple-sandwiches">
+      <div class="simple-item">Ham & Cheese - £5.00</div>
+      <div class="simple-item">Cheese - £4.00</div>
+      <div class="simple-item">Cheese & Tomato - £4.50</div>
+      <div class="simple-item">Cheese & Onion - £4.50</div>
+      <div class="simple-item">Ham - £4.50</div>
+      <div class="simple-item">Tuna & Cucumber - £6.50</div>
+    </div>
+    <br>
+  </div>
+</div>
+
+  <div class="blank" id="burgers">BURGERS</div>
+  <div class="subt">All Burgers are served with an option of sweet potato fries or chips <br> 
+  </div>
+<div class="menu-layout">
+  <div class="menu-left">
+  <br>
+    <div class="food-item">
+      <div class="number">1.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Steak Burger with Cheese - £13.00</div>
+        <div class="description">Double British Steak Burgers, Double Cheese, Homemade Caramelized Red Onions, Salad Burger Sauce - served in a brioche bun</div>
+      </div>
+    </div>
+  
+    <div class="food-item">
+      <div class="number">2.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Steak Burger with Cheese & Bacon - £13.50</div>
+        <div class="description">Double British Steak Burgers, Double Cheese, Streaky Bacon, Homemade Caramelized Red Onions, Salad, Burger Sauce - served in a brioche bun</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">3.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Steak Burger with Chilli Cheese - £10.00</div>
+        <div class="description">British Steak Burger, Chilli Cheese, Homemade Caramelized Red Onions, Salad, Burger Sauce - served in a brioche bun</div>
+      </div>
+    </div>
+
+  <div class="between-image">
+  <img src="The Second Home-65.jpg">
+  </div>
+
+    <div class="food-item">
+      <div class="number">4.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">American Beef Burger with Chilli Cheese - £10.50</div>
+        <div class="description">British Steak Burger, Chilli Cheese, Bacon, Gherkin, Homemade Caramelized Red Onions, Salad, Burger Sauce - served in a brioche bun - topped with onion rings</div>
+      </div>
+    </div>
+
+
+    <div class="food-item">
+      <div class="number">5.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Vegetarian Burger - £9.00</div>
+        <div class="description">Vegetarian Patty, Salad, Homemade Caramelized Red Onions, Salad, Burger Sauce - served in a brioche bun</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">6.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Grilled Chicken Burger with Double Cheese - £12.00</div>
+        <div class="description">Grilled Chicken Breast, Double Cheese, Homemade Caramelized Red Onions, Salad, Burger Sauce - served in a brioche bun</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">7.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Cajun Grilled Chicken Burger with Double Cheese and Bacon - £12.50</div>
+        <div class="description">Cajun Chicken Breast, Double Cheese, Bacon, Homemade Caramelized Red Onions, Salad, Burger Sauce - served in a brioche bun - topped with onion rings</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">8.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Vegan Burger - £10.00</div>
+        <div class="description">Vegan burger, Salad, Caramelized Red Onions, Vegan Mayo - served in a vegan brioche bun</div>
+      </div>
+    </div>
+
+  <div class="between-image">
+  <img src="The Second Home-90.jpg">
+  </div>
+
+    <div class="food-item">
+      <div class="number">9.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Jacket Potato - £7.50</div>
+        <div class="description">Served with butter & a choice of fillings; Tuna Mayo - Tuna Melt - Chicken Mayo - Cheese & Beans</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">10.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Chicken Salad - £7.95</div>
+        <div class="description">Grilled Chicken, Mixed Salad, Avocado, Tomato, Cucumber, Olives, mixed with Salad Cream and drizzled with Balsamic Glaze</div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">11.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Greek Salad - £7.95</div>
+        <div class="description">Tomato, Cucumber, Onion, Olives, Feta with Olive Oil</div>
+      </div>
+    </div>
+
+  <div class="between-image">
+  <img src="The Second Home-118.jpg">
+  </div>
+
+    <div class="food-item">
+      <div class="number">12.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Soup - £4.95</div>
+        <div class="description">Choice of Vegetable, Tomato, Cream of Chicken or Cream of Mushroom - Served with Sourdough Bread </div>
+      </div>
+    </div>
+
+    <div class="food-item">
+      <div class="number">12.</div>
+      <div class="details">
+        <div class="name" style="font-weight: bolder;">Chicken Wrap - £8.95</div>
+        <div class="description">Choice of Garlic Mayo, Sweet Chilli, Spicy Chilli or BBQ sauce - served with coleslaw and chips</div>
+      </div>
+    </div>
+
+    <br>
+  </div>
+</div>
+
+<div class="blank" id="kidsmenu">KIDS MENU</div>  
+<div class="menu-layout">
+  <div class="menu-left">
+    <div class="simple-sandwiches">
+      <div class="simple-item">Chicken nuggets & Chips - £4.50</div>
+      <div class="simple-item">Sausage & Chips  - £4.50</div>
+      <div class="simple-item">Fishfingers & Chips - £5.00</div>
+      <div class="simple-item">Scampi & Chips - £5.20</div>
+    </div>
+    <br>
+  </div>
+</div>
+
+
+
+<div class="coffee-layout">
+<div id="drinks" style="font-size: 40px;
+color: #f2c94c;
+margin-bottom: 30px;
+display:flex;
+background-color: black;">
+<span style="flex:2;">COFFEE & TEA</span>
+<span style="flex:1; text-align:right;">Reg</span>
+<span style="flex:1; text-align:right;">Lrg</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Americano</span>
+<span style="flex:1; text-align:right;">£2.80</span>
+<span style="flex:1; text-align:right;">£3.50</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Espresso</span>
+<span style="flex:1; text-align:right;">single £2.00</span>
+<span style="flex:1; text-align:right;">double £2.40</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Latte</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+<span style="flex:1; text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Cappuccino</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+<span style="flex:1; text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Flat White</span>
+<span style="flex:1; text-align:right;">£3.20</span>
+<span style="flex:1; text-align:right;">£4.00</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Macchiato</span>
+<span style="flex:1; text-align:right;">single £2.50</span>
+<span style="flex:1; text-align:right;">double £2.70</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Mocha</span>
+<span style="flex:1; text-align:right;">£3.20</span>
+<span style="flex:1; text-align:right;">£4.00</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Iced Coffee</span>
+<span style="flex:1; text-align:right;">from £4.00</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Hot Chocolate</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+<span style="flex:1; text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Chai Latte</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+<span style="flex:1; text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Matcha Latte</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+<span style="flex:1; text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Babyccino</span>
+<span style="flex:1; text-align:right;">£1.00</span>
+<span style="flex:1;"></span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Tea</span>
+<span style="flex:1; text-align:right;">£2.50</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Earl Grey</span>
+<span style="flex:1; text-align:right;">£2.50</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:2;">Herbal Tea (various flavours)</span>
+<span style="flex:1; text-align:right;">£2.50</span>
+<span style="flex:1; text-align:right;">£3.00</span>
+</div>
+
+<p style="font-size: 40px;
+color: #f2c94c;
+margin-bottom: 30px;
+display:flex;">
+<span style="flex:2;">Coffee Shots</span>
+<span style="flex:1; text-align:right;">+50p</span>
+<span style="flex:1; text-align:right;">+80p</span>
+</p>
+
+<div  style=" color: #f2c94c;">Caramel</div>
+<div style=" color: #f2c94c;">Cinnamon</div>
+<div style=" color: #f2c94c;">Vanilla</div>
+<div style=" color: #f2c94c;">Hazelnut</div>
+<div style=" color: #f2c94c;">Chocolate</div>
+<div style=" color: #f2c94c;">Gingerbread</div>
+
+<p style="font-size: 40px;
+color: #f2c94c;
+margin-bottom: 30px;
+display:flex;">
+<span style="flex:2;">Alternative Milks</span>
+<span style="flex:1; text-align:right;">+50p</span>
+<span style="flex:1; text-align:right;">+80p</span>
+</p>
+
+<div style=" color: #f2c94c;">Almond</div>
+<div style=" color: #f2c94c;">Coconut</div>
+<div style=" color: #f2c94c;">Oat</div>
+<div style=" color: #f2c94c;">Soya</div>
+
+
+<p style="font-size: 40px;
+color: #f2c94c;
+margin-bottom: 30px;">COLD DRINKS</p>
+
+<div style="flex:1 1 400px;">
+
+<!-- 330ml Cans -->
+<p style="
+color:#f2c94c;
+display:flex;">
+<span style="flex:1; font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size:20px;">330 ml CANS</span>
+<span style="text-align:right;">£1.80</span>
+</p>
+
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Diet Coke</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Coke Zero</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Coca Cola</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Fanta Orange</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Fanta Fruit</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Fanta Lemon</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">7 Up</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Lilt</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Dr Pepper</span></div>
+</div>
+
+<p style="color:#f2c94c;
+margin-top:20px;
+display:flex;">
+<span style="flex:1; font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size:20px;">RED BULL</span>
+<span style="text-align:right;">£2.50</span>
+</p>
+
+<!-- 500ml Bottles -->
+<p style="color:#f2c94c;
+margin-top:20px;
+display:flex;">
+<span style="flex:1; font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size:20px;">500ml BOTTLES</span>
+<span style="text-align:right;">£1.25</span>
+</p>
+
+<div style="display:flex;">
+<span style="flex:1; color: #f2c94c;">Water ~ Still or Sparkling</span>
+</div>
+
+
+<!-- Juice -->
+<p style="color:#f2c94c;
+margin-top:20px;">Juice</p>
+
+<div style="display:flex;">
+<span style="flex:1; color: #f2c94c; font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size:20px;">Apple juice 500ml bottle</span>
+<span style="text-align:right; color: #f2c94c;">£1.80</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1; color: #f2c94c;">Orange juice 400ml / Lemonade 500ml</span>
+<span style="text-align:right; color: #f2c94c;">£2.20</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1; color: #f2c94c;">200ml carton</span>
+<span style="text-align:right; color: #f2c94c;">£1.20</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1; color: #f2c94c;">PIP smoothie</span>
+<span style="text-align:right; color: #f2c94c;">£2.20</span>
+</div>
+
+
+<!-- Milkshakes -->
+<p style="color:#f2c94c;
+margin-top:20px;
+display:flex;">
+<span style="flex:1; font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size:20px;">Milkshakes</span>
+<span style="text-align:right;">£3.50</span>
+</p>
+
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Chocolate</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Strawberry</span></div>
+<div style="display:flex; color: #f2c94c;"><span style="flex:1;">Vanilla</span></div>
+
+
+<!-- Smoothies -->
+<p style="color:#f2c94c;
+margin-top:20px;
+display:flex;">
+<span style="flex:1; color: #f2c94c; font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size:20px;">Smoothie</span>
+<span style="text-align:right; color: #f2c94c;">£4.75</span>
+</p>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:1;">Big 5 (Pineapple, Mango, Strawberry, Kiwi)</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:1;">Cherry Poppins (Strawberry, Sour Cherry, Mango, Banana, Blackcurrants, Raspberries)</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:1;">Pash n Shoot (Pineapple, Mango, Passionfruit)</span>
+</div>
+
+<div style="display:flex; color: #f2c94c;">
+<span style="flex:1;">Berry Go Round (Strawberry, Blackberry, Raspberry)</span>
+</div>
+<br>
+
+<div style="font-size: 40px;
+color: #f2c94c;
+background-color: black;
+margin-bottom: 30px;">ALCOHOLIC MENU</div>
+
+
+<!-- Column Headers -->
+<div style="display:flex; font-weight:bolder; color:#f2c94c;">
+<span style="flex:2; font-family:'Courier New', Courier, monospace; font-size: 20px;">WINE</span>
+<span style="flex:1; text-align:right;">Per Glass</span>
+<span style="flex:1; text-align:right;">Per Bottle</span>
+</div>
+<br>
+
+<!-- White Wine -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:2;">White Wine</span>
+<span style="flex:1; text-align:right;">£5</span>
+<span style="flex:1; text-align:right;">£18</span>
+</div>
+
+<!-- Red Wine -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:2;">Red Wine</span>
+<span style="flex:1; text-align:right;">£5</span>
+<span style="flex:1; text-align:right;">£18</span>
+</div>
+
+<!-- Rose Wine -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:2;">Rose Wine</span>
+<span style="flex:1; text-align:right;">£5</span>
+<span style="flex:1; text-align:right;">£18</span>
+</div>
+<br>
+
+<div style="display:flex; font-weight:bolder; color:#f2c94c;">
+<span style="flex:2; font-family:'Courier New', Courier, monospace; font-size: 20px;">PROSECCO</span>
+<span style="flex:1; text-align:right;">Small bottle <br>£5.50</span>
+<span style="flex:1; text-align:right;">Regular Bottle <br>£24</span>
+</div>
+<br>
+
+<div style="display:flex; font-weight:bolder; color:#f2c94c;">
+<span style="flex:2; font-family:'Courier New', Courier, monospace; font-size: 20px;">BEER</span>
+<span style="flex:1; text-align:right;">300ml bottle</span>
+</div>
+
+
+<!-- Moretti -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:2;">Moretti</span>
+<span style="flex:1;"></span>
+<span style="flex:1; text-align:right;">£4.20</span>
+</div>
+
+<!-- Budweiser -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:2;">Budweiser</span>
+<span style="flex:1;"></span>
+<span style="flex:1; text-align:right;">£3.70</span>
+</div>
+
+<!-- Heineken -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:2;">Heineken</span>
+<span style="flex:1;"></span>
+<span style="flex:1; text-align:right;">£3.70</span>
+</div>
+
+
+<div style="flex:1 1 400px; padding-right: 10px;">
+<p id="pastries" style="font-size: 40px;
+color: #f2c94c;
+margin-bottom: 30px;
+display:flex;">BAKERY & PATISSERIE</p>
+<div style="color:#f2c94c;">Please check what sweet treats are available at the front counter as these change daily<br><br></div><br>
+
+<!-- Pies & Slices -->
+<div style="font-weight:bolder; color:#f2c94c; font-family:'Courier New', Courier, monospace; font-size: 20px;">Pies & Slices</div>
+<br>
+
+<!-- £2.75  -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Butter and Oat Flapjack (vegan)</span>
+<span style="text-align:right;">£2.75 </span>
+</div>
+
+<!-- £2.95  -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Millionaire Shortbread</span>
+<span style="text-align:right;">£2.95 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Chocolate Brownie</span>
+<span style="text-align:right;">£2.95 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Gingerbread Man</span>
+<span style="text-align:right;">£2.95 </span>
+</div>
+
+<!-- £3.10  -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Apricot Frangipane</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Lemon Tart</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Eccles Cake</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Bakewell Tart</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Lemon Cake Slice</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Marble Cake Slice</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Fruit Cake Slice</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Chocolate Orange Cake Slice</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Banana Slice</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Almond, Blackcurrent Tart</span>
+<span style="text-align:right;">£3.10 </span>
+</div>
+
+<!-- £4.00  -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Pecan Pie</span>
+<span style="text-align:right;">£4.00 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Normandy Apple Pie</span>
+<span style="text-align:right;">£4.00 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Pear, Hazelnut and Chocolate Tart</span>
+<span style="text-align:right;">£4.00 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Vanilla Cheese Cake</span>
+<span style="text-align:right;">£4.00 </span>
+</div>
+
+<!-- £4.20  -->
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Apple Crumble</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+<br>
+<!-- Slice of Gâteaux -->
+<div style="font-weight:bolder; color:#f2c94c; font-family:'Courier New', Courier, monospace; font-size: 20px;">Slice of Gâteaux</div>
+<br>
+
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Carrot and Orange Cake</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Red Velvet Cake</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Chocolate Fudge Cake</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Hummingbird Cake (banana, pineapple, pecan)</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Coffee & Walnut Cake</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Orange and Almond Polenta (gluten free)</span>
+<span style="text-align:right;">£4.20 </span>
+</div>
+
+<!-- Muffins -->
+<p style="font-family:'Courier New', Courier, monospace;
+font-size:18px;
+font-weight:bolder;
+color:#f2c94c;
+margin-top:20px;">
+Muffins
+</p>
+
+<div style="display:flex;  color:#f2c94c;">
+<span style="flex:1;">Chocolate chip</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+<div style="display:flex;  color:#f2c94c;">
+<span style="flex:1;">Double Chocolate</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Raspberry</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Blueberry</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Lemon</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Banana and Walnut</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+
+<br>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;font-weight:bolder; font-family:'Courier New', Courier, monospace; font-size: 20px;">Fruit Scone and Tea Cake</span>
+<span style="text-align:right;">£3.20 </span>
+</div>
+<div style="display:flex; color:#f2c94c;">
+<span style="flex:1;">Served with Butter and Jam</span>
+</div>
+</div>
+
+
+<div style="flex:1 1 400px; padding-right: 10px;  color:#f2c94c;">
+<p id="pastries" style="font-size: 40px;
+color: #f2c94c;
+margin-bottom: 30px;
+display:flex;">SAVOURY TREATS</p>
+
+
+
+<!-- Butter Croissants -->
+<p style="font-family:'Courier New', Courier, monospace;
+font-size:18px;
+font-weight:bolder;
+color:#f2c94c;
+margin-top:20px;">
+Butter Croissants
+</p>
+
+<div style="display:flex;">
+<span style="flex:1;">Plain Butter</span>
+<span style="text-align:right;">£2.95</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Pain au Raisin</span>
+<span style="text-align:right;">£3.10</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Pain au Chocolat</span>
+<span style="text-align:right;">£3.10</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Almond Croissant</span>
+<span style="text-align:right;">£3.20</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Chocolate and Hazelnut</span>
+<span style="text-align:right;">£3.20</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Ham & Cheese</span>
+<span style="text-align:right;">£4.20</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Cheese & Tomato</span>
+<span style="text-align:right;">£4.20</span>
+</div>
+
+<!-- Savoury Pastries -->
+<p style="font-family:'Courier New', Courier, monospace;
+font-size:18px;
+font-weight:bolder;
+color:#f2c94c;
+margin-top:20px;">
+Savoury Pastries
+</p>
+
+<div style="display:flex;">
+<span style="flex:1;">Sausage Roll</span>
+<span style="text-align:right;">£4.20</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Cheese and Onion Roll</span>
+<span style="text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Vegan Sausage Roll</span>
+<span style="text-align:right;">£3.80</span>
+</div>
+
+<div style="display:flex;">
+<span style="flex:1;">Vegan Spicy Chickpea Roll</span>
+<span style="text-align:right;">£3.80</span>
+</div>
+
+<!-- Danishes -->
+<p style="font-family:'Courier New', Courier, monospace;
+font-size:18px;
+font-weight:bolder;
+color:#f2c94c;
+margin-top:20px;">
+Danishes
+</p>
+
+<!-- £3.10 -->
+<div style="display:flex;">
+<span style="flex:1;">Raspberry</span>
+<span style="text-align:right;">£3.10</span>
+</div>
+<div style="display:flex;">
+<span style="flex:1;">Apple</span>
+<span style="text-align:right;">£3.10</span>
+</div>
+<div style="display:flex;">
+<span style="flex:1;">Cinnamon</span>
+<span style="text-align:right;">£3.10</span>
+</div>
+<div style="display:flex;">
+<span style="flex:1;">Pecan and Maple Plait</span>
+<span style="text-align:right;">£3.10</span>
+</div>
+<br>
+<br>
+
+
+</div>
+
+<footer>© 2026 The Second Home Cafe </footer>
+
+
+</body>
+<script>
+function toggleMenu() {
+  document.getElementById("dropdownMenu").classList.toggle("show");
+}
+
+window.addEventListener("click", function(e) {
+  const menu = document.getElementById("dropdownMenu");
+  const button = document.querySelector(".menu-icon");
+
+  if (!menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove("show");
+  }
+});
+</script>
+</html> 

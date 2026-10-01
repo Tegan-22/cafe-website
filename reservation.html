@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book a Table</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js)"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+  }
+</script>
+
+
+<style>
+body {
+  background-color: black;
+  color: #D4AF37;
+  font-family: "Georgia", serif;
+  margin: 0;
+}
+
+/* HEADER */
+header{
+  background:black;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+
+header h1{
+  font-family:'Great Vibes',cursive;
+  font-size:48px;
+  margin:0;
+  color:#f2c94c;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #D4AF37;
+  border-radius: 5px;
+  background: black;
+  color: #D4AF37;
+}
+
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: #D4AF37;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* formatted date text */
+#formattedDate {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #bfa133;
+  font-style: italic;
+}
+
+.thank-you {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* HEADER */
+header{
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 25px;
+  border: 1px solid #D4AF37;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: left;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:70px;
+height:70px;
+}
+
+header h1{
+font-family:'Great Vibes',cursive;
+font-size:35px;
+margin:0;
+color:#f2c94c;
+}
+
+/* Keep icons in one horizontal line */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;       /* prevents wrapping */
+  overflow: hidden;        /* avoids spillover */
+}
+
+/* Base icon style */
+.menu-icon,
+.socials a {
+  font-size: clamp(18px, 2.5vw, 28px); /* responsive size */
+  color: #f2c94c;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  flex-shrink: 0; /* prevents shrinking into weird shapes */
+}
+
+/* Hover effect (no layout shift) */
+.socials a:hover {
+  transform: scale(1.2);  /* enlarges smoothly */
+  opacity: 0.8;
+}
+
+/* Click (active) effect */
+.socials a:active {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* MENU ICON */
+.menu-icon {
+  font-size: 40px;
+  color: #f2c94c;
+  cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  background: black;
+  border: 1px solid #f2c94c;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  min-width: 220px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* LINKS */
+.dropdown-menu a {
+  padding: 15px 20px;
+  color: #f2c94c;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242,201,76,0.2);
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #f2c94c;
+  color: black;
+}
+
+/* SHOW MENU */
+.dropdown-menu.show {
+  display: flex;
+  animation: fadeSlide 0.3s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+.about-us,
+.section-inner{
+flex-direction:column;
+text-align:center;
+}
+}
+
+</style>
+</head>
+
+<body>
+  
+<header>
+<div class="brand">
+<img src="Goldlogo.PNG" class="logo">
+<h1><a href="thesecondhome.html" style="text-decoration: none; color: #f2c94c;">The Second Home</h1></a>
+</div>
+<div class="socials">
+  <a href="mailto:privateemail@gmail.com" style="text-decoration: none; font-size: 30px; color: #f2c94c;">✉  </a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</div>
+
+</header>
+
+<div class="dropdown-menu" id="dropdownMenu">
+  <a href="TheSecondHome.html">Home</a>
+  <a href="#">Book a table</a>
+  <a href="menu.html">Menu</a>
+  <a href="afternoon-tea.html">Afternoon tea</a>
+  <a href="contact.html">Contact us</a>
+</div>
+
+<div class="container" id="formPage">
+  <h1>Book a Table</h1>
+  <form id="bookingForm">
+
+    <label>* Name:</label>
+    <input type="text" id="name" required>
+
+    <label>* Number of chairs needed:</label>
+    <input type="number" id="chairs" min="1" max= "6" required>
+
+	<p id="groupNotice" style="margin-top:8px; font-size:14px; color:#bfa133;"></p>
+
+    <label>Number of high chairs needed:</label>
+    <input type="number" id="highchairs" min="0">
+
+    <label>* Enter the Date:</label>
+    <input type="date" id="date" required>
+
+    <p id="formattedDate"></p>
+
+    <label>* Time (09:00–15:00):</label>
+    <input type="time" id="time" min="09:00" max="15:00" step="300" required>
+
+    <label>* Telephone Number:</label>
+    <input type="text" id="num" required>
+
+    <label>Additional notes:</label>
+    <textarea id="notes"></textarea>
+
+    <button type="submit">Confirm Booking</button>
+  </form>
+</div>
+
+<div class="thank-you" id="thankYouPage">
+  <div>
+    <h1>Thank you for making a reservation!</h1>
+  </div>
+</div>
+
+<script>
+emailjs.init("9pZW0sG-IwcmSe-Lf");
+
+// FORM SUBMIT
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+  sendEmail();
+});
+
+// EMAIL
+function sendEmail() {
+  emailjs.send("service_atycx7s", "template_1icbyuw", {
+    name: name.value,
+    chairs: chairs.value,
+    highchairs: highchairs.value,
+    date: date.value,
+    time: time.value,
+    num: num.value,
+    notes: notes.value,
+    to_email: "private-email@gmail.com"
+  }).then(function() {
+    formPage.style.display = 'none';
+    thankYouPage.style.display = 'flex';
+  });
+}
+
+// DATE LIMITS
+(function() {
+  const dateInput = document.getElementById('date');
+
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const maxDate = new Date();
+  maxDate.setMonth(maxDate.getMonth() + 6);
+
+  function formatDate(d) {
+    return d.toISOString().split('T')[0];
+  }
+
+  dateInput.min = formatDate(tomorrow);
+  dateInput.max = formatDate(maxDate);
+})();
+
+// ✅ FORMATTED DATE DISPLAY (YOUR CODE ADDED PROPERLY)
+const dateInput = document.getElementById('date');
+const display = document.getElementById('formattedDate');
+
+dateInput.addEventListener('change', function() {
+  const dateValue = new Date(this.value);
+
+  if (!isNaN(dateValue)) {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    display.textContent = dateValue.toLocaleDateString('en-GB', options);
+  } else {
+    display.textContent = "";
+  }
+});
+
+const chairsInput = document.getElementById('chairs');
+const notice = document.getElementById('groupNotice');
+
+chairsInput.addEventListener('input', function() {
+  const value = parseInt(this.value);
+
+  if (value >= 6) {
+    notice.textContent = "Please note, groups bigger than 6 must be reserved in store with a cash deposit of £5 per head";
+  } else {
+    notice.textContent = "";
+  }
+});
+
+</script>
+
+</body>
+
+</html>
